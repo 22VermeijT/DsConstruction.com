@@ -15,7 +15,7 @@ export function PrivacyPolicyModal() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="text-muted text-xs hover:text-cream transition-colors"
+        className="text-muted text-sm hover:text-cream transition-colors"
       >
         Privacy Policy
       </button>
