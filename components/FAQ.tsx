@@ -64,7 +64,7 @@ export function FAQ() {
             className="flex items-center gap-3 mb-6"
           >
             <span className="text-muted text-xs tracking-[0.22em] uppercase font-semibold">Common Questions</span>
-            <span className="rule-lime w-12" />
+            <span className="rule-pink w-12" />
           </motion.div>
 
           <motion.h2
@@ -75,7 +75,7 @@ export function FAQ() {
             className="font-display text-5xl lg:text-6xl font-bold text-ink leading-tight mb-5"
           >
             Questions we get<br />
-            <em className="text-forest-mid not-italic">all the time.</em>
+            <em className="text-pink not-italic">all the time.</em>
           </motion.h2>
 
           <motion.p
@@ -90,6 +90,9 @@ export function FAQ() {
           </motion.p>
         </div>
 
+        <div className="max-w-3xl mx-auto mb-1">
+          <div className="bicolor-divider" />
+        </div>
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq, i) => (
             <motion.div
@@ -107,15 +110,15 @@ export function FAQ() {
                 <span
                   className={`font-semibold text-base leading-snug transition-colors duration-200 ${
                     open === i
-                      ? "text-forest-mid"
-                      : "text-ink group-hover:text-forest-mid"
+                      ? "text-pink"
+                      : "text-ink group-hover:text-pink"
                   }`}
                 >
                   {faq.q}
                 </span>
-                <span className="flex-shrink-0 w-7 h-7 border border-stone flex items-center justify-center group-hover:border-forest-mid transition-colors duration-200">
+                <span className="flex-shrink-0 w-7 h-7 border border-stone flex items-center justify-center group-hover:border-pink transition-colors duration-200">
                   {open === i ? (
-                    <Minus className="w-3.5 h-3.5 text-forest-mid" />
+                    <Minus className="w-3.5 h-3.5 text-pink" />
                   ) : (
                     <Plus className="w-3.5 h-3.5 text-muted" />
                   )}
@@ -152,7 +155,7 @@ export function FAQ() {
           Still have a question?{" "}
           <a
             href="tel:+16826221532"
-            className="text-forest-mid font-semibold hover:text-forest underline underline-offset-2"
+            className="text-pink font-semibold hover:text-pink-dark underline underline-offset-2"
           >
             Call us — we&apos;re happy to talk it through.
           </a>

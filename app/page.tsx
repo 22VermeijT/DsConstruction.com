@@ -20,21 +20,21 @@ export default function Home() {
         <Hero />
         <TrustBar />
         <About />
-        <div className="lime-divider" />
+        <div className="bicolor-divider" />
         <Services />
-        <div className="lime-divider" />
+        <div className="pink-divider" />
         <Process />
-        <div className="lime-divider" />
+        <div className="bicolor-divider" />
         <Projects />
         <div className="lime-divider" />
         <Craftsmanship />
-        <div className="lime-divider" />
+        <div className="pink-divider" />
         <StormDamage />
-        <div className="lime-divider" />
+        <div className="bicolor-divider" />
         <Testimonials />
         <div className="lime-divider" />
         <FAQ />
-        <div className="lime-divider" />
+        <div className="pink-divider" />
         <Contact />
       </main>
       <Footer />

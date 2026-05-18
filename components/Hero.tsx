@@ -80,7 +80,7 @@ export function Hero() {
         >
           {/* Location tag */}
           <motion.div variants={fadeUp} className="flex items-center gap-3">
-            <span className="block w-7 h-px bg-lime flex-shrink-0" />
+            <span className="block w-7 h-px bg-pink flex-shrink-0" />
             <span className="text-lime text-xs font-semibold tracking-[0.22em] uppercase">
               <span className="text-pink star-glow-pink">★</span> Alvarado, Texas · Serving DFW
             </span>
@@ -93,7 +93,7 @@ export function Hero() {
             style={{ fontSize: "clamp(3rem, 7vw, 5.25rem)" }}
           >
             <span className="block whitespace-nowrap">Done Right.</span>
-            <span className="block whitespace-nowrap">Done Honest.</span>
+            <span className="block whitespace-nowrap text-pink" style={{ textShadow: "0 0 60px rgba(244,114,182,0.55), 0 0 20px rgba(244,114,182,0.3)" }}>Done Honest.</span>
             <em className="block whitespace-nowrap text-lime not-italic">Built in Texas.</em>
           </motion.h1>
 

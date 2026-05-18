@@ -96,7 +96,7 @@ export function Craftsmanship() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="flex-shrink-0 bg-lime px-8 py-5 bracket-lime"
-            style={{ boxShadow: "4px 4px 0 rgba(244,114,182,0.4)" }}
+            style={{ boxShadow: "4px 4px 0 rgba(244,114,182,0.4), 0 0 20px rgba(244,114,182,0.15), 0 0 40px rgba(74,222,128,0.1)" }}
           >
             <div className="font-display text-4xl font-bold text-ink leading-none">100%</div>
             <div className="text-ink/70 text-xs mt-1.5 font-semibold leading-tight">
@@ -117,7 +117,7 @@ export function Craftsmanship() {
             <motion.div
               key={p.num}
               variants={cardVariants}
-              className="relative bg-forest p-8 flex flex-col gap-5 group hover:bg-forest-mid transition-colors duration-300 overflow-hidden"
+              className={`relative bg-forest p-8 flex flex-col gap-5 group hover:bg-forest-mid transition-all duration-300 overflow-hidden ${p.accent === "lime" ? "hover:shadow-[inset_0_-2px_0_rgba(74,222,128,0.5)]" : "hover:shadow-[inset_0_-2px_0_rgba(244,114,182,0.5)]"}`}
             >
               {/* Large background number */}
               <div
@@ -148,7 +148,7 @@ export function Craftsmanship() {
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 border border-lime text-lime font-semibold px-8 py-4 hover:bg-lime hover:text-ink transition-colors text-sm"
+            className="inline-flex items-center gap-2 border border-pink text-pink font-semibold px-8 py-4 hover:bg-pink hover:text-ink transition-colors text-sm"
           >
             Start Your Project
           </a>

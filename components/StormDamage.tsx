@@ -33,8 +33,9 @@ export function StormDamage() {
         aria-hidden="true"
       >★</div>
 
-      {/* Accent bar — lime-to-pink gradient */}
+      {/* Accent bars — lime-to-pink gradient on left, pink-to-lime on right */}
       <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: "linear-gradient(to bottom, #4ADE80, #F472B6)" }} aria-hidden="true" />
+      <div className="absolute right-0 top-0 bottom-0 w-1 opacity-40" style={{ background: "linear-gradient(to bottom, #F472B6, #4ADE80)" }} aria-hidden="true" />
 
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
@@ -47,8 +48,8 @@ export function StormDamage() {
               transition={{ duration: 0.5 }}
               className="flex items-center gap-3 mb-6"
             >
-              <CloudLightning className="w-5 h-5 text-lime" />
-              <span className="text-lime text-xs font-semibold tracking-[0.22em] uppercase">Storm & Damage Repair</span>
+              <CloudLightning className="w-5 h-5 text-pink" />
+              <span className="text-pink text-xs font-semibold tracking-[0.22em] uppercase">Storm & Damage Repair</span>
             </motion.div>
 
             <motion.h2
@@ -117,7 +118,7 @@ export function StormDamage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-            className="hidden lg:block bg-ink border border-lime/20 p-8 w-72 bracket-lime"
+            className="hidden lg:block bg-ink border border-lime/20 p-8 w-72 bracket-lime shadow-[0_0_30px_rgba(244,114,182,0.08),0_0_1px_rgba(74,222,128,0.2)]"
           >
             <p className="text-lime text-xs font-semibold tracking-[0.18em] uppercase mb-6">
               What we handle

@@ -17,7 +17,9 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-charcoal border-t border-white/8 overflow-hidden">
+    <footer className="relative bg-charcoal overflow-hidden">
+      {/* Bicolor top accent */}
+      <div className="bicolor-divider" />
       {/* Lime glow — top left */}
       <div
         className="absolute inset-0 pointer-events-none"

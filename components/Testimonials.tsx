@@ -52,7 +52,7 @@ export function Testimonials() {
           className="flex items-center gap-3 mb-6"
         >
           <span className="text-muted text-xs tracking-[0.22em] uppercase font-semibold">05 / From Our Customers</span>
-          <span className="rule-lime w-12" />
+          <span className="rule-pink w-12" />
         </motion.div>
 
         <motion.h2
@@ -64,7 +64,7 @@ export function Testimonials() {
         >
           Real words from real
           <br />
-          <em className="text-forest-mid not-italic">DFW homeowners.</em>
+          <em className="text-pink not-italic">DFW homeowners.</em>
         </motion.h2>
 
         {/* Stories — editorial staggered layout */}
@@ -82,6 +82,8 @@ export function Testimonials() {
               }}
               className="px-0 py-10 lg:px-10 lg:py-0 first:pl-0 last:pr-0 flex flex-col bracket-lime"
             >
+              {/* Top accent rule */}
+              <div className={`h-0.5 w-14 mb-5 ${i === 1 ? "bg-pink shadow-[0_0_8px_rgba(244,114,182,0.6)]" : "bg-lime shadow-[0_0_8px_rgba(74,222,128,0.6)]"}`} />
               {/* Texas Lone Stars */}
               <div className="flex gap-1.5 mb-3" aria-hidden="true">
                 {[...Array(5)].map((_, s) => (
@@ -130,7 +132,7 @@ export function Testimonials() {
             We&apos;re actively booking projects.{" "}
             <a
               href="#contact"
-              className="text-forest-mid font-semibold hover:text-forest underline underline-offset-2"
+              className="text-pink font-semibold hover:text-pink-dark underline underline-offset-2"
             >
               Get your estimate before the calendar fills up.
             </a>

@@ -74,6 +74,7 @@ export function Navigation() {
           background:    scrolled ? "rgba(10,10,10,0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(12px)"          : "none",
           borderBottom:  scrolled ? "1px solid rgba(255,255,255,0.06)" : "none",
+          boxShadow:     scrolled ? "0 1px 0 0 rgba(74,222,128,0.15), 0 2px 0 0 rgba(244,114,182,0.1)" : "none",
         }}
       >
         <nav className="max-w-[1280px] mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">

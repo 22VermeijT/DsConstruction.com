@@ -133,7 +133,7 @@ export function Contact() {
     `w-full bg-charcoal border text-cream text-sm px-4 py-3.5 focus:outline-none transition-colors placeholder:text-muted ${
       touched[name] && errors[name]
         ? "border-red-400 focus:border-red-400"
-        : "border-white/10 focus:border-lime"
+        : "border-white/10 focus:border-pink"
     }`;
 
   return (
@@ -187,7 +187,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-            className="space-y-10"
+            className="space-y-10 border-l-2 border-pink/20 pl-6"
           >
             <div>
               <p className="text-warm text-sm leading-relaxed mb-8">
@@ -209,12 +209,12 @@ export function Contact() {
                 </a>
 
                 <a href="mailto:dlassetter24@gmail.com" className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 border border-lime/30 flex items-center justify-center flex-shrink-0 group-hover:border-lime group-hover:shadow-[0_0_10px_rgba(74,222,128,0.25)] transition-all">
-                    <Mail className="w-4 h-4 text-lime" />
+                  <div className="w-10 h-10 border border-pink/30 flex items-center justify-center flex-shrink-0 group-hover:border-pink group-hover:shadow-[0_0_10px_rgba(244,114,182,0.25)] transition-all">
+                    <Mail className="w-4 h-4 text-pink" />
                   </div>
                   <div>
                     <p className="text-xs text-muted uppercase tracking-wide font-semibold mb-0.5">Email</p>
-                    <p className="text-stone font-medium group-hover:text-lime transition-colors break-all">
+                    <p className="text-stone font-medium group-hover:text-pink transition-colors break-all">
                       dlassetter24@gmail.com
                     </p>
                   </div>
@@ -222,7 +222,7 @@ export function Contact() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 border border-white/15 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-4 h-4 text-lime" />
+                    <MapPin className="w-4 h-4 text-pink" />
                   </div>
                   <div>
                     <p className="text-xs text-muted uppercase tracking-wide font-semibold mb-0.5">Based In</p>
@@ -254,6 +254,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], delay: 0.1 }}
+            className="shadow-[inset_0_2px_0_rgba(244,114,182,0.4),inset_0_-2px_0_rgba(74,222,128,0.3)]"
           >
             {submitted ? (
               <motion.div

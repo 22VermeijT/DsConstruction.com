@@ -45,7 +45,7 @@ export function About() {
           className="flex items-center gap-3 mb-16"
         >
           <span className="text-muted text-xs tracking-[0.22em] uppercase font-semibold">01 / About</span>
-          <span className="rule-lime flex-1 max-w-[60px]" />
+          <span className="rule-pink flex-1 max-w-[60px]" />
         </motion.div>
 
         <div className="grid lg:grid-cols-[1fr_420px] gap-16 lg:gap-24 items-start">
@@ -106,9 +106,9 @@ export function About() {
             viewport={{ once: true, margin: "-80px" }}
             className="space-y-4"
           >
-            <div className="relative h-[540px] overflow-hidden ring-1 ring-lime/20">
+            <div className="relative h-[540px] overflow-hidden ring-1 ring-pink/30">
               <Image
-                src="/daven.jpg"
+                src="/daven-family.jpg"
                 alt="Daven Lassetter — Owner of D's Construction & Remodeling"
                 fill
                 className="object-cover object-top"
@@ -119,7 +119,7 @@ export function About() {
               </div>
             </div>
 
-            <div className="bg-forest px-6 py-5">
+            <div className="bg-forest px-6 py-5 shadow-[inset_0_-2px_0_rgba(244,114,182,0.5),inset_2px_0_0_rgba(74,222,128,0.3)]">
               <p className="text-stone text-sm leading-relaxed italic font-display">
                 &ldquo;When you hire us, you get me on the job.
                 <br />That&apos;s not something I plan to change.&rdquo;
@@ -145,14 +145,15 @@ export function About() {
                 <div className={`font-display text-5xl font-bold leading-none ${i === 2 ? "text-pink" : "text-forest-mid"}`}>
                   {value}
                 </div>
-                <div className="text-muted text-sm mt-2 font-medium">{label}</div>
+                <div className={`h-px w-8 mx-auto mt-2 mb-2 ${i === 2 ? "bg-pink/60 shadow-[0_0_6px_rgba(244,114,182,0.5)]" : "bg-forest-mid/60 shadow-[0_0_6px_rgba(74,222,128,0.3)]"}`} />
+                <div className="text-muted text-sm font-medium">{label}</div>
               </div>
             ))}
           </div>
 
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 bg-forest text-cream font-semibold px-8 py-4 hover:bg-forest-mid transition-colors text-sm"
+            className="inline-flex items-center gap-2 border border-pink text-pink font-semibold px-8 py-4 hover:bg-pink hover:text-ink transition-colors text-sm"
           >
             Talk to Daven About Your Project
           </a>

@@ -141,21 +141,21 @@ export function Services() {
                 ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
                 delay: i * 0.07,
               }}
-              className="group py-10 grid lg:grid-cols-[80px_1fr_1fr_auto] gap-6 lg:gap-10 items-start"
+              className={`group py-10 grid lg:grid-cols-[80px_1fr_1fr_auto] gap-6 lg:gap-10 items-start border-l-2 border-transparent transition-all duration-300 pl-0 hover:pl-4 ${i % 2 === 1 ? "hover:border-pink" : "hover:border-lime"}`}
             >
               {/* Number */}
-              <div className="font-display text-4xl font-bold text-white/30 group-hover:text-lime/60 transition-colors duration-300 leading-none pt-1">
+              <div className={`font-display text-4xl font-bold text-white/30 transition-colors duration-300 leading-none pt-1 ${i % 2 === 1 ? "group-hover:text-pink/60" : "group-hover:text-lime/60"}`}>
                 {cat.number}
               </div>
 
               {/* Title + accent */}
               <div>
-                <h3 className="font-display text-2xl lg:text-3xl font-bold text-cream group-hover:text-lime transition-colors duration-200 leading-tight mb-3">
+                <h3 className={`font-display text-2xl lg:text-3xl font-bold text-cream transition-colors duration-200 leading-tight mb-3 ${i % 2 === 1 ? "group-hover:text-pink" : "group-hover:text-lime"}`}>
                   {cat.title}
                 </h3>
                 <p className="text-muted text-sm leading-relaxed max-w-xs">{cat.accent}</p>
                 <p className="text-warm/60 text-xs mt-3 font-medium">
-                  <span className={i === 2 ? "text-pink/70" : "text-lime/70"}>Timeline: </span>{cat.timeline}
+                  <span className={i % 2 === 1 ? "text-pink/70" : "text-lime/70"}>Timeline: </span>{cat.timeline}
                 </p>
               </div>
 
@@ -163,7 +163,7 @@ export function Services() {
               <ul className="space-y-2">
                 {cat.services.map((s) => (
                   <li key={s} className="flex items-start gap-2.5 text-stone text-sm">
-                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5 ${i === 2 ? "bg-pink" : "bg-lime"}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5 ${i % 2 === 1 ? "bg-pink" : "bg-lime"}`} />
                     {s}
                   </li>
                 ))}
@@ -173,7 +173,7 @@ export function Services() {
               <div className="hidden lg:block pt-1">
                 <a
                   href="#contact"
-                  className="w-10 h-10 border border-white/15 flex items-center justify-center text-warm group-hover:border-lime group-hover:text-lime transition-colors duration-200"
+                  className={`w-10 h-10 border border-white/15 flex items-center justify-center text-warm transition-colors duration-200 ${i % 2 === 1 ? "group-hover:border-pink group-hover:text-pink" : "group-hover:border-lime group-hover:text-lime"}`}
                   aria-label={`Get a quote for ${cat.title}`}
                 >
                   <ArrowUpRight className="w-4 h-4" />

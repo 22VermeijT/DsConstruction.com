@@ -201,7 +201,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               <ul className="space-y-2">
                 {project.details.map((d, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm text-charcoal leading-relaxed">
-                    <span className="text-lime mt-0.5 flex-shrink-0">★</span>
+                    <span className={`mt-0.5 flex-shrink-0 ${i % 2 === 0 ? "text-lime" : "text-pink"}`}>★</span>
                     {d}
                   </li>
                 ))}
@@ -213,7 +213,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             <a
               href="#contact"
               onClick={onClose}
-              className="inline-flex items-center gap-2 bg-forest text-cream font-semibold px-6 py-3 hover:bg-forest-mid transition-colors text-sm"
+              className="inline-flex items-center gap-2 bg-forest text-cream font-semibold px-6 py-3 hover:bg-forest-mid transition-colors text-sm shadow-[0_2px_0_rgba(244,114,182,0.4)]"
             >
               Get a Quote for This Work
             </a>
@@ -248,7 +248,7 @@ export function Projects() {
               className="flex items-center gap-3 mb-6"
             >
               <span className="text-muted text-xs tracking-[0.22em] uppercase font-semibold">03 / Projects</span>
-              <span className="rule-lime w-12" />
+              <span className="rule-pink w-12" />
             </motion.div>
 
             <motion.h2
@@ -259,14 +259,14 @@ export function Projects() {
               className="font-display text-5xl lg:text-6xl font-bold text-ink leading-tight"
             >
               Work we&apos;re<br />
-              <em className="text-forest-mid not-italic">proud to put our name on.</em>
+              <em className="text-pink not-italic">proud to put our name on.</em>
             </motion.h2>
           </div>
 
           {/* Perfect grid — 3 columns desktop, 2 tablet, 1 mobile */}
           <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <AnimatePresence mode="popLayout">
-              {projects.map((project) => (
+              {projects.map((project, idx) => (
                 <motion.div
                   key={project.id}
                   layout
@@ -308,18 +308,18 @@ export function Projects() {
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div>
-                          <p className="text-lime text-xs font-semibold tracking-wide uppercase mb-1.5">
+                          <p className="text-pink text-xs font-semibold tracking-wide uppercase mb-1.5">
                             {project.category}
                           </p>
                           <h3 className="font-display text-xl font-bold text-cream leading-tight mb-2">
                             {project.title}
                           </h3>
                           <p className="text-stone text-sm leading-relaxed">{project.description}</p>
-                          <p className="text-lime/70 text-xs mt-3 font-medium">{project.location}</p>
+                          <p className="text-pink/70 text-xs mt-3 font-medium">{project.location}</p>
                         </div>
                         <ArrowUpRight className="w-5 h-5 text-lime flex-shrink-0 mt-1" />
                       </div>
-                      <p className="text-lime/60 text-[10px] mt-4 font-semibold tracking-widest uppercase">
+                      <p className="text-pink/60 text-[10px] mt-4 font-semibold tracking-widest uppercase">
                         Click to view details
                       </p>
                     </motion.div>
@@ -331,7 +331,7 @@ export function Projects() {
                   </div>
 
                   {/* Below-image title */}
-                  <div className="bg-white px-4 py-3 border-l-2 border-lime">
+                  <div className={`bg-white px-4 py-3 border-l-2 ${idx % 2 === 0 ? "border-lime" : "border-pink"}`}>
                     <p className="font-semibold text-ink text-sm leading-tight">{project.title}</p>
                     <p className="text-muted text-xs mt-0.5">{project.location}</p>
                   </div>
@@ -350,7 +350,7 @@ export function Projects() {
           >
             These are a small sample of our work. Call us and we&apos;ll walk you through more projects
             similar to what you have in mind.{" "}
-            <a href="tel:+16826221532" className="text-forest-mid hover:text-forest font-semibold underline-offset-2 underline">
+            <a href="tel:+16826221532" className="text-pink hover:text-pink-dark font-semibold underline-offset-2 underline">
               (682) 622-1532
             </a>
           </motion.p>
