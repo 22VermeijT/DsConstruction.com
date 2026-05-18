@@ -1,26 +1,285 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand palette */
+  --color-forest:      #1A3320;
+  --color-forest-mid:  #2D5A3D;
+  --color-forest-light:#3D7A54;
+  --color-lime:        #4ADE80;
+  --color-lime-dark:   #22c55e;
+  --color-pink:        #F472B6;
+  --color-pink-dark:   #EC4899;
+  --color-ink:         #0A0A0A;
+  --color-charcoal:    #1C1C1C;
+  --color-cream:       #F8F5F0;
+  --color-stone:       #E5DED3;
+  --color-warm:        #9A9086;
+  --color-muted:       #6B6560;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans:    var(--font-inter);
+  --font-display: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
 }
+
+/* scroll-behavior is handled via JS in SmoothScroll.tsx so browser
+   native scroll restoration stays instant (no animated jump on refresh) */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F8F5F0;
+  color: #0A0A0A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Dot-grid texture utility (applied via className="dot-grid") */
+.dot-grid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.07) 1px,
+    transparent 0
+  );
+  background-size: 30px 30px;
+}
+
+.dot-grid-dark {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(0, 0, 0, 0.06) 1px,
+    transparent 0
+  );
+  background-size: 30px 30px;
+}
+
+/* Diagonal clip for hero image panel */
+.clip-diagonal-left {
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Horizontal rule with green accent — also works on <span> via .block */
+.rule-lime {
+  display: block;
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, #4ADE80, transparent);
+}
+
+/* Editorial underline on headings */
+.heading-underline {
+  position: relative;
+  display: inline-block;
+}
+.heading-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 60%;
+  height: 2px;
+  background: #4ADE80;
+}
+
+/* Smooth image zoom on hover */
+.img-zoom img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* ── Logo theme: neon lime glow ───────────────────────────────── */
+
+/* 1. CTA — permanent outline ring echoes logo's layered badge borders */
+.bg-lime {
+  outline: 1px solid rgba(74, 222, 128, 0.3);
+  outline-offset: 2px;
+}
+.bg-lime:hover {
+  box-shadow: 0 0 24px rgba(74, 222, 128, 0.45), 0 0 8px rgba(74, 222, 128, 0.2);
+  outline-color: rgba(74, 222, 128, 0.65);
+}
+
+/* Active nav underline glow */
+.nav-active-line {
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.85);
+}
+
+/* 3. Texas Lone Star text glow */
+.star-glow {
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.75);
+}
+
+/* Form input focus glow */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.12);
+}
+
+/* Marquee scroll */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* Lime heading text glow */
+h1 .text-lime, h2 .text-lime {
+  text-shadow: 0 0 40px rgba(74, 222, 128, 0.35);
+}
+
+/* Button shine sweep */
+@keyframes shine-sweep {
+  0%   { transform: translateX(-120%) skewX(-20deg); opacity: 0; }
+  40%  { opacity: 1; }
+  100% { transform: translateX(220%) skewX(-20deg); opacity: 0; }
+}
+a.bg-lime {
+  position: relative;
+  overflow: hidden;
+}
+a.bg-lime::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
+}
+a.bg-lime:hover::after {
+  animation: shine-sweep 0.55s ease forwards;
+}
+
+/* Pulse ring on primary CTA */
+@keyframes lime-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(74, 222, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+.pulse-lime {
+  animation: lime-pulse 2.2s ease-out infinite;
+}
+
+/* Nav logo hover glow */
+.logo-glow img {
+  transition: filter 0.3s ease;
+}
+.logo-glow:hover img {
+  filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.5));
+}
+
+/* Text selection */
+::selection {
+  background: rgba(74, 222, 128, 0.2);
+  color: inherit;
+}
+
+/* Geometric corner brackets — echoes the logo's layered shape */
+.bracket-lime {
+  position: relative;
+}
+.bracket-lime::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 16px; height: 16px;
+  border-top: 2px solid rgba(74, 222, 128, 0.45);
+  border-left: 2px solid rgba(74, 222, 128, 0.45);
+  pointer-events: none;
+  z-index: 1;
+}
+.bracket-lime::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 16px; height: 16px;
+  border-bottom: 2px solid rgba(74, 222, 128, 0.45);
+  border-right: 2px solid rgba(74, 222, 128, 0.45);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Bright lime section divider strip */
+.lime-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(74,222,128,0.7) 30%, rgba(74,222,128,0.7) 70%, transparent 100%);
+}
+
+/* Stronger lime heading glow */
+h1 .text-lime, h2 .text-lime {
+  text-shadow: 0 0 60px rgba(74, 222, 128, 0.5), 0 0 20px rgba(74, 222, 128, 0.2);
+}
+
+/* Lime left-bar on open FAQ items */
+.faq-open {
+  background: rgba(244, 114, 182, 0.04);
+  border-left: 3px solid rgba(244, 114, 182, 0.6);
+  padding-left: 1rem;
+}
+
+/* Slow ambient glow breathe */
+@keyframes ambient-breathe {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 1; }
+}
+.glow-breathe {
+  animation: ambient-breathe 9s ease-in-out infinite;
+}
+
+/* Crosshatch line overlay for dark sections */
+.crosshatch {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.018) 1px,
+      transparent 1px,
+      transparent 28px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.018) 1px,
+      transparent 1px,
+      transparent 28px
+    );
+}
+
+/* Pink accent utilities */
+.rule-pink {
+  display: block;
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, #F472B6, transparent);
+}
+
+.star-glow-pink {
+  text-shadow: 0 0 10px rgba(244, 114, 182, 0.8);
+}
+
+.bracket-pink {
+  position: relative;
+}
+.bracket-pink::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 16px; height: 16px;
+  border-top: 2px solid rgba(244, 114, 182, 0.5);
+  border-left: 2px solid rgba(244, 114, 182, 0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+.bracket-pink::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 16px; height: 16px;
+  border-bottom: 2px solid rgba(244, 114, 182, 0.5);
+  border-right: 2px solid rgba(244, 114, 182, 0.5);
+  pointer-events: none;
+  z-index: 1;
 }
